@@ -378,7 +378,7 @@ def add_record(settings):
 
 def set_notification_limit(settings):
     notif_dict = settings.get('limit')
-    print(notif_dict)
+    # print(notif_dict)
     layout = [[sg.Text("Set notification limits.", font=('Montserrat', 10, 'bold'))]]
     for k, v in notif_dict.items():
         layout += [[sg.Text(k)], [sg.Slider(range=(1, 100), default_value=v, orientation='h', enable_events=True, key=k)]]
@@ -445,8 +445,8 @@ def email_report(email, resource):
                 break
         window.close()
     # sg.popup("")
-    for k,  v in email.items():
-        print(k, v)
+    # for k,  v in email.items():
+    #     print(k, v)
     
     # name_email = settings.get("email", None)
     # ems = ""
@@ -493,7 +493,7 @@ def main():
 
     while True:
         event, values = window.read()
-        print(event, values)
+        # print(event, values)
         # parse_event(event, email, report_opt, email_opt, settingscd )
         # parse_values(values, auth, settings)
         if values[0] == "Settings Menu":
@@ -545,7 +545,7 @@ def main():
 
         if event in report_opt:
             file = report.down_report(report_opt[event])
-            print('report saved to file = ', file)
+            # print('report saved to file = ', file)
             sg.popup(report_opt[event] + " report saved to file " + file, title="Report generation successful!")
         elif event in email_opt:
             email_report(email, email_opt[event])
